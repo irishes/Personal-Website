@@ -1,0 +1,156 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Brandon Kindrick</title>
+        <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon'/>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+        <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+        <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script> 
+        <script src="webvr.js"></script>
+  </head>
+    </head>
+    <body>
+        <div class="nav-bar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="webvr.html">Web VR</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li>About</li>
+                <li style="float: right"><a href="https://github.com/irishes"><img src="img/Github_icon.png" alt="Git Hub" class="social" width="20" height="20"></a></li>
+                <li style="float: right"><a href="https://www.linkedin.com/in/brandon-kindrick-7a1432153/"><img src="img/linkedin-icoon.png" alt="Linked In" class="social" width="20" height="20"></a></li>
+                <li style="float: right"><a href="https://twitter.com/BrandonKindrick"><img src="img/twitter-logo-transparent-small.png" alt="Twitter" class="social" width="20" height="20"></a></li>
+            </ul>
+        </div>
+        <a-scene id="space-scene">
+            <a-camera poistion="0 0 0">
+                <a-sound id="yavin-music" src="aud/Battle_of_Yavin.mp3" autoplay="true" position="0 0 0"></a-sound>
+                <a-sound id="ds-sfx" src="aud/Death_Star_Fires.wav" autoplay="false" position="0 0 0"></a-sound>
+            </a-camera>
+
+            <a-sky color="#000"></a-sky>
+
+            <a-plane src="#img_death_star" repeat="32 32" width="2048" height="2048" position="0 -5 0" rotation="-90 0 0"></a-plane>
+
+            <a-sphere id="yavin" src="#img_yavin" radius="500" position="0 1000 -500" rotation="0 0 0">
+                <a-animation attribute="rotation" dur="100000" to="0 0 360" repeat="indefinite" easing="linear">
+                </a-animation>
+            </a-sphere>
+
+            <a-sphere id="yavin-4" src="#img_yavin_4" radius="50" position="-200 1100 -1100">
+                <a-animation attribute="position" dur="500000" to="1200 1100 -1100" easing="linear">
+                </a-animation>
+                <a-animation attribute="rotation" dur="10000" to="0 0 360" repeat="indefinite" easing="linear">
+                </a-animation>
+            </a-sphere>
+
+            <a-cylinder id="ds-blast" color="#27bc31" height="2000" radius="5" position="1200 90 -1100" visible="false">
+            </a-cylinder>
+
+            <a-assets>
+                <!--images-->
+                <img id="img_death_star" src="img/ds.jpg"></img>
+                <img id="img_yavin" src="img/yavin.png"></img>
+                <img id="img_yavin_4" src="img/yavin_4.jpg"></img>
+                <!--audio-->
+                <!--<a-sound src="aud/Battle_of_Yavin.mp3" autoplay="true" position="0 0 0"></a-sound>-->
+                <!--entities-->
+                <a-entity hello-world></a-entity>
+                <!--objects-->
+                <a-asset-item id="obj_ywing" src="vox/Y-Wing/ywing.obj"></a-asset-item>
+                <a-asset-item id="obj_xwing" src="vox/X-Wing/xwing.obj"></a-asset-item>
+                <a-asset-item id="obj_tiefighter" src="vox/Tie-Fighter/tiefighter.obj"></a-asset-item>
+                <a-asset-item id="obj_tieadvanced" src="vox/Tie-Advanced/tieadvanced.obj"></a-asset-item>
+                <!--mtls-->
+                <a-asset-item id="mtl_ywing" src="vox/Y-Wing/ywing.mtl"></a-asset-item>
+                <a-asset-item id="mtl_xwing" src="vox/X-Wing/xwing.mtl"></a-asset-item>
+                <a-asset-item id="mtl_tiefighter" src="vox/Tie-Fighter/tiefighter.mtl"></a-asset-item>
+                <a-asset-item id="mtl_tieadvanced" src="vox/Tie-Advanced/tieadvanced.mtl"></a-asset-item>
+            </a-assets>
+
+            <a-entity id="ent_ywing_gold_0" rotation="0 90 0" position="0 50 10000" obj-model="obj: #obj_ywing; mtl: #mtl_ywing">
+                <a-animation attribute="position" dur= 60000 to="0 50 -10000" easing="linear">
+                </a-animation>
+            </a-entity>
+
+            <a-entity id="ent_ywing_gold_1" rotation="0 90 0" position="-50 50 10500" obj-model="obj: #obj_ywing; mtl: #mtl_ywing">
+                <a-animation attribute="position" dur= 60000 to="-50 50 -10000" easing="linear">
+                </a-animation>
+            </a-entity>
+
+            <a-entity id="ent_ywing_gold_2" rotation="0 90 0" position="50 50 10500" obj-model="obj: #obj_ywing; mtl: #mtl_ywing">
+                <a-animation attribute="position" dur= 60000 to="50 50 -10000" easing="linear">
+                </a-animation>
+            </a-entity>
+
+            <a-entity id="ent_tiefighter_0" rotation="0 90 0" position="0 50 12000" obj-model="obj: #obj_tiefighter; mtl: #mtl_tiefighter">
+                <a-animation attribute="position" dur= 65000 to="0 50 -10000" easing="linear">
+                </a-animation>
+            </a-entity>
+        </a-scene>
+
+            <a-entity id="ent_tieadvanced_0" rotation="0 90 0" position="50 50 12000" obj-model="obj: #obj_tieadvanced; mtl: #mtl_tieadvanced">
+                <a-animation attribute="position" dur= 65000 to="50 50 -10000" easing="linear">
+                </a-animation>
+            </a-entity>
+        </a-scene>
+
+        <script>
+            var scene = document.querySelector('a-scene');
+            //var dsBlast = document.getElementById('ds-blast');
+            var dsSFX = document.getElementById('ds-sfx');
+
+            function fireDS(){
+                var dsBlast = document.createElement('a-cylinder');
+                dsBlast.setAttribute('visible', 'true');
+            };
+
+            function fireDSSFX(){
+                dsSFX.components.sound.playSound();
+            };
+
+
+            function destroyDSBlast(){
+                dsBlast.setAttribute('visible', 'false');
+                //scene.removeChild(dsBlast);
+            };
+
+            setTimeout(fireDS, 513000);
+            setTimeout(fireDSSFX, 504000);
+            setTimeout(destroyDSBlast, 508000);
+            clearTimeout(fireDS);
+            clearTimeout(fireDSSFX);
+            clearTimeout(destroyDSBlast);
+
+            function createT65(randX, randY, randZ){
+                var t_65 = document.createElement('a-entity');
+                var x = randX;
+                var y = randY;
+                var z = randZ;
+
+                t_65.setAttribute("obj-model", "obj: #obj_ywing; mtl: #mtl_ywing");
+                t_65.setAttribute("position", {
+                    x: x,
+                    y: y,
+                    z: z
+                });
+                scene.appendChild(t_65);
+            };
+
+            function createSurfaceFire(){
+                var blast = document.createElement('a-cylinder');
+                var randomX = Math.random();
+                blast.setAttribute('color', '#27bc31');
+                //blast.setAttribute('position', )
+            };
+
+            createT65(Math.random(), 50, Math.random());
+
+        </script>
+
+        <div class="end-bar">
+            <ul>
+            </ul>
+        </div>
+    </body>
+</html>
